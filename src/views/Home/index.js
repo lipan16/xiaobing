@@ -27,7 +27,7 @@ const Home = function(){
                 <div>尽调任务</div>
             </NavBar>
             <div>
-                <div onClick={toDetail}>detail</div>
+                <div onClick={toDetail} className='aaa'>detail</div>
                 <div>{count}</div>
                 <button onClick={add1}>count ++</button>
                 <button onClick={add2}>count + 2</button>
