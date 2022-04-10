@@ -1,0 +1,1 @@
+export const addAction = (data) =>({type: '+', data})
