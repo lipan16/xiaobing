@@ -2,9 +2,9 @@ import nativeSDK     from './nativeSDK';
 import mockRequest   from './request/mockRequest';
 import axiosRequest  from './request/axiosRequest';
 import webappRequest from './request/webappRequest';
-import {string2bool} from '../common/utils';
+import {string2bool} from '../utils';
 
-const Request = string2bool(process.env.REACT_APP_MOCK) ? mockRequest() : string2bool(process.env.REACT_APP_USEPROXY) ? axiosRequest : webappRequest;
+let Request = string2bool(process.env.REACT_APP_MOCK) ? mockRequest() : process.env.NODE_ENV === 'development' ? axiosRequest : webappRequest;
 
 const Api = {
     ...nativeSDK,
@@ -20,11 +20,6 @@ const Api = {
                 });
             }else{ // mobile
                 nativeSDK.getLoginInfo().then(response => {
-                    // try{
-                    //     SensorsApi.login(response.info) // 神策登录
-                    // }catch{
-                    //     console.log('sensors login error')
-                    // }
                     resolve(response.info);
                 }).catch(err => {
                     reject(err);

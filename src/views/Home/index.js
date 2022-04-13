@@ -1,36 +1,61 @@
-import {NavBar}                   from 'antd-mobile';
+import {NavBar, Toast}            from 'antd-mobile';
 import {useNavigate}              from 'react-router-dom';
+import {useDispatch, useSelector} from 'react-redux';
 
 import './index.less';
-import backbtn                    from '../../assets/back-black.svg';
-import searchbtn                  from '../../assets/search.svg';
-import {useDispatch, useSelector} from 'react-redux';
+import btn_search                 from '../../assets/search.svg';
+
+import {getDateTime}         from '../../utils/day';
+import {useEffect, useState} from 'react';
 
 const Home = function(){
     let navigate = useNavigate();
     let count    = useSelector(state => state.count);
+    let timeType = useSelector(state => state.timeType);
     let dispatch = useDispatch();
 
-    const toDetail = () => {
-        navigate('/detail');
+    let [dataTime, setDataTime] = useState('');
+
+    useEffect(() => {
+        window.timeInterval = setInterval(() => {
+            setDataTime(getDateTime(timeType));
+            clearInterval(window.timeInterval);
+        }, 1000);
+        return () => {
+            clearInterval(window.timeInterval);
+        };
+    }, [dataTime]);
+
+    const Events = {
+        back    : () => {
+            Toast.show({
+                content : '点击了返回区域',
+                duration: 1000
+            });
+        },
+        toDetail: () => {
+            navigate('/detail');
+        },
+        add     : data => {
+            dispatch({type: '+', data});
+        },
+        changesTimeType(){
+            clearInterval(window.timeInterval);
+            dispatch({type: 'timeType', data: !timeType});
+            setDataTime(getDateTime(!timeType));
+        }
     };
-    const add1     = () => {
-        dispatch({type: '+', data: 1});
-    };
-    const add2     = () => {
-        dispatch({type: '+', data: 2});
-    };
+
     return (
         <div className="home">
-            <NavBar className="nav-bar" backArrow={<img src={backbtn} style={{width: 10, height: 18}} alt=""/>}
-                    right={<img src={searchbtn} style={{width: 18, height: 18}} alt=""/>}>
-                <div>尽调任务</div>
+            <NavBar className="nav-bar" onBack={Events.back} right={<img src={btn_search} style={{width: 18, height: 18}} alt=""/>}>
+                <div onClick={Events.changesTimeType}>{dataTime || getDateTime(timeType)}</div>
             </NavBar>
             <div>
-                <div onClick={toDetail} className='aaa'>detail</div>
-                <div>{count}</div>
-                <button onClick={add1}>count ++</button>
-                <button onClick={add2}>count + 2</button>
+                <div onClick={Events.toDetail} className="aaa">12</div>
+                <h1>{count}</h1>
+                <button onClick={() => Events.add(1)}>count ++</button>
+                <button onClick={() => Events.add(2)}>count + 2</button>
             </div>
         </div>
     );
