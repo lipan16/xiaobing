@@ -1,0 +1,66 @@
+html {
+  height: 100%;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  background-color: @base-background-color;
+  font-size: 16px;
+}
+
+#root {
+  height: 100%;
+}
+
+ul, li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+img{
+  vertical-align: middle;
+}
+
+/* text ellipsis */
+.long-text-ellipsis {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* animation */
+@keyframes rotate360 {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(90deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  75% {
+    transform: rotate(270deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+
