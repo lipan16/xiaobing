@@ -4,6 +4,8 @@ import {Provider} from 'react-redux'
 import {HashRouter, useRoutes} from 'react-router-dom'
 import VConsole from 'vconsole'
 
+import '@/styles/global.less'
+
 import store from './store'
 import routes from './router'
 

@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from 'react-redux'
 
 import {changeTimeType} from '@/store/bpiTime'
 import {getBpiTime} from '@/utils/bpiTime'
+import './index.less'
 
 const BPI_TIME = () => {
     let timeType = useSelector((state) => state.bpiTime.timeType)
@@ -27,7 +28,7 @@ const BPI_TIME = () => {
     }
 
     return (
-        <div onClick={changesTimeType}>{dataTime || getBpiTime(timeType)}</div>
+        <div className='bpi-time' onClick={changesTimeType}>{dataTime || getBpiTime(timeType)}</div>
     )
 
 }
