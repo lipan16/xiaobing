@@ -13,6 +13,8 @@ app.get('/api/login', (req, res) => {
         }
     }))
 })
+
+// todo post请求获取到请求参数
 app.post('/api/post', (req, res)=>{
     console.log('/api/post 接受到的参数：', req.body)
     res.header('Access-Control-Allow-Origin', '\*')
