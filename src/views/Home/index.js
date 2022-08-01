@@ -9,6 +9,11 @@ const Home = () => {
     // }).catch(err => {
     //     console.log(err.message)
     // })
+    myFetch('/api/name/a', 'get').then(res => {
+        console.log(res.info.name)
+    }).catch(err => {
+        console.log(err)
+    })
     myFetch('/api/login?a=1', 'get').then(res => {
         console.log(res.info.name)
     }).catch(err => {

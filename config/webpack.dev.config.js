@@ -16,7 +16,6 @@ const webpackConfigDev = {
         devMiddleware: {
             writeToDisk: true
         },
-        port: 8090,
         open: true,
         proxy: {
             '/api': {
