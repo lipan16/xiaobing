@@ -1,22 +1,28 @@
-function myFetch(url, method = 'POST', data){
+function fetchRequest({url, method = 'POST', data, loading = false, loadingContent = '加载中...'}){
     let body = ''
     for(let key in data){
-        console.log(key)
         body += key + '=' + data[key] + '&'
-        console.log(body)
     }
-    body = body.slice(0, -1)
+
+    if(['get', 'GET', 'head', 'HEAD'].includes(method)){
+        url += '?' + body.slice(0, -1)
+        body = null
+    }else{
+        body = data
+    }
 
     return fetch(url, {
         method,
         credentials: 'include', // 每次都带上 cookies
         headers: {
-            'Accept': 'application/json, text/plain, */*',
-            'Cache-Control': 'no-cache',
-            'Content-Type': 'application/x-www-form-urlencoded'
+            'Access-Control-Allow-Origin': '*',
+            'Content-Type': 'application/json;charset: utf-8',
+            'X-Requested-With': 'XMLHttpRequest', // 标明为异步请求
+            'Accept': 'application/json;*/*;',
+            'Cache-Control': 'no-cache'
         },
-        body: ['get', 'GET', 'head', 'HEAD'].includes(method) ? null : body // get 或者head 提交的请求不能有body。数据格式key=val&key=val&key=val
+        body // get 或者head 提交的请求不能有body
     }).then(res => res.json())
 }
 
-export default myFetch
+export default fetchRequest

@@ -1,12 +1,28 @@
+import config from '@config'
 import nativeSDK from './nativeSDK'
-import webappRequest from './services/webappRequest'
-import axiosRequest from './services/axiosRequest'
+import appRequest from '@/api/services/appRequest'
+import axiosRequest from '@/api/services/axiosRequest'
+import fetchRequest from '@/api/services/fetchRequest'
 
-const Request = process.env.NODE_ENV === 'production' ? webappRequest : axiosRequest
-
-const invoke = {
-  login: (params) => Request({method: 'GET', url: '/login', params, loading: true, loadingContent: '登录中...'}),
+let Request = fetchRequest
+switch(config.requestType){
+    case 'fetch':
+        Request = fetchRequest
+        break
+    case 'axios':
+        Request = axiosRequest
+        break
+    case 'mobile':
+        Request = appRequest
+        break
+    default:
+        Request = fetchRequest
 }
 
-const Api = {nativeSDK, ...invoke}
+const Api = {
+    login: (data) => Request({url: '/api/login', method: 'GET', data, loading: true, loadingContent: '登录中...'}),
+    loginPost: (data) => Request({url: '/api/post', method: 'POST', data, loading: true, loadingContent: '登录中...'}),
+    nativeSDK
+}
+
 export default Api

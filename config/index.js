@@ -2,6 +2,7 @@ let devServer = 'http://127.0.0.1:3000/'   // 内网dev
 let sitServer = 'http://10.7.56.74:7201/openapi/component'   // 内网sit
 
 const config = {
+    requestType: 'axios',
     apiAddress: devServer, // 代理服务器地址
     isMeasureSpeed: false, // 是否测试性能
     allowScreenshot: false, // 是否允许截图

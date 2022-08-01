@@ -80,7 +80,8 @@ module.exports = {
     },
     resolve: {
         alias: {
-            '@': path.resolve(__dirname, '../src')
+            '@': path.resolve(__dirname, '../src'),
+            '@config': path.resolve(__dirname, './')
         },
         extensions: ['.js', '.css', '.less']
     },

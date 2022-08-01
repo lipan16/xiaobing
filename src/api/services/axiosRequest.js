@@ -3,11 +3,14 @@ import {get} from 'lodash'
 
 // create an axios instance
 const instance = axios.create({
-    baseURL: '/api',
+    baseURL: '',
     timeout: 20 * 1000,
     headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-        'X-Requested-With': 'XMLHttpRequest'
+        'Access-Control-Allow-Origin': '*',
+        'Content-Type': 'application/json;charset=UTF-8',
+        'X-Requested-With': 'XMLHttpRequest', // 标明为异步请求
+        'Accept': 'application/json;*/*;',
+        'Cache-Control': 'no-cache'
     }
 })
 
@@ -38,6 +41,14 @@ export default function({url, method, data, loading = false, loadingContent = '�
     //     maskClickable: false,
     //     maskStyle: {backgroundColor: 'rgba(0,0,0,0.35)'}
     // })
+
+    if(['get', 'GET', 'head', 'HEAD'].includes(method)){
+        url += '?'
+        for(let key in data){
+            url += key + '=' + data[key] + '&'
+        }
+        url = url.slice(0, -1)
+    }
 
     return new Promise((resolve, reject) => {
         instance({url, method, data}).then((res) => {
