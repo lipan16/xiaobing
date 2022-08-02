@@ -1,65 +1,69 @@
-html {
-  height: 100%;
-  -webkit-user-select: none;
-  user-select: none;
-  -webkit-touch-callout: none;
-  -webkit-overflow-scrolling: touch;
+*{
+    margin  : 0;
+    padding : 0;
+    -webkit-overflow-scrolling: touch; // 是否使用滚动回弹效果
 }
 
-body {
-  height: 100%;
-  margin: 0;
-  background-color: @base-background-color;
-  font-size: 16px;
+html{
+    height                     : 100%;
+    -webkit-user-select        : none;
+    user-select                : none;
+    -webkit-touch-callout      : none;
+    -webkit-overflow-scrolling : touch;
 }
 
-#root {
-  height: 100%;
+body{
+    height           : 100%;
+    background-color : @base-background-color;
+    font-size        : 16px;
 }
 
-ul, li {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+#root{
+    height : 100%;
 }
 
-p {
-  margin: 0;
+ul, li{
+    list-style : none;
 }
 
-a {
-  text-decoration: none;
+a{
+    text-decoration : none;
 }
 
 img{
-  vertical-align: middle;
+    vertical-align : middle;
 }
 
 /* text ellipsis */
-.long-text-ellipsis {
-  display: inline-block;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+.long-text-ellipsis{
+    display       : inline-block;
+    white-space   : nowrap;
+    overflow      : hidden;
+    text-overflow : ellipsis;
+}
+
+.flex-inline{
+    display     : flex;
+    align-items : center;
 }
 
 /* animation */
-@keyframes rotate360 {
-  0% {
-    transform: rotate(0deg);
-  }
-  25% {
-    transform: rotate(90deg);
-  }
-  50% {
-    transform: rotate(180deg);
-  }
-  75% {
-    transform: rotate(270deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+@keyframes rotate360{
+    0%{
+        transform : rotate(0deg);
+    }
+    25%{
+        transform : rotate(90deg);
+    }
+    50%{
+        transform : rotate(180deg);
+    }
+    75%{
+        transform : rotate(270deg);
+    }
+    100%{
+        transform : rotate(360deg);
+    }
 }
 
 

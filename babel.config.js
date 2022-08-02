@@ -5,7 +5,9 @@ module.exports = api => {
             [
                 "@babel/preset-env", {
                     "targets": {
-                        "node": true
+                        "node": true,
+                        "chrome": "49",
+                        "ios": "10"
                     }
                 }
             ],

@@ -1,6 +1,10 @@
+import AndroidKeyboardCover from '@/components/android-keyboard-cover'
+import IosInputHeight from '@/components/ios-input-height'
+import IosKeyboardReset from '@/components/ios-keyboard-reset'
 import React from 'react'
-import myFetch from '@/api/services/fetchRequest'
+
 import BPI_TIME from '@/components/BPITime'
+
 import Api from '@/api'
 
 const Home = () => {
@@ -15,9 +19,10 @@ const Home = () => {
         console.log(err.message)
     })
 
-    return (
+    return (<>
         <BPI_TIME/>
-    )
+        <AndroidKeyboardCover/>
+    </>)
 }
 
 export default Home
