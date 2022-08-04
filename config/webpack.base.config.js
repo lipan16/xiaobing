@@ -99,7 +99,7 @@ module.exports = {
             ]
         }),
         new ProgressBarPlugin({
-            format: `   :msg [:bar] ${chalk.green.bold(':percent')} (:elapsed s)`
+            format: `:msg [:bar] ${chalk.green.bold(':percent')} (:elapsed s)`
         }),
         new WebpackManifestPlugin({}),
         new MomentLocalesPlugin()
