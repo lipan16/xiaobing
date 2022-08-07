@@ -1,13 +1,9 @@
 import React, {useState, useRef} from 'react'
 
 import './index.less'
-import b1 from '@/assets/1.jpg'
-import b2 from '@/assets/2.jpg'
-import b3 from '@/assets/3.jpg'
-import b4 from '@/assets/4.jpg'
 
 const mySwiper = () => {
-    const imgs = [b1, b2, b3, b4]
+    const imgs = []
     const [swiperIndex, setSwiperIndex] = useState(0)
     const swiperRef = useRef()
 
