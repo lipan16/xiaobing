@@ -1,5 +1,6 @@
 import axios from 'axios'
 import {get} from 'lodash'
+import MyPromise from '@/utils/myPromise'
 
 // create an axios instance
 const instance = axios.create({
@@ -50,7 +51,7 @@ export default function({url, method, data, loading = false, loadingContent = 'å
         url = url.slice(0, -1)
     }
 
-    return new Promise((resolve, reject) => {
+    return new MyPromise((resolve, reject) => {
         instance({url, method, data}).then((res) => {
             // loading && Toast.clear()
             resolve(res)
