@@ -14,7 +14,7 @@ module.exports = {
     entry: './src/index.js', // 项目的入口文件,相对根目录
     output: { // 配置输出信息
         path: path.resolve(__dirname, '../build'), // 输出的路径，相对当前目录
-        filename: isEnvProduction ? '[name].[contenthash:8].js' : 'bundle.js',  // 列在 entry 中,打包输出的文件名称
+        filename: isEnvProduction ? '[name].[contenthash:8].js' : '[name].bundle.js',  // 列在 entry 中,打包输出的文件名称
         chunkFilename: isEnvProduction ? '[name].[contenthash:8].chunk.js' : '[name].chunk.js' // 未列在 entry 中，却又需要被打包出来的文件的名称
     },
     module: {
