@@ -20,9 +20,9 @@ switch(config.requestType){
 }
 
 const Api = {
+    nativeSDK,
     login: (data) => Request({url: '/api/login', method: 'GET', data, loading: true, loadingContent: '登录中...'}),
     loginPost: (data) => Request({url: '/api/post', method: 'POST', data, loading: true, loadingContent: '登录中...'}),
-    nativeSDK
 }
 
 export default Api

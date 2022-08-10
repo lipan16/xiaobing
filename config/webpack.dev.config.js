@@ -23,10 +23,13 @@ const webpackConfigDev = {
                 secure: false,
                 changeOrigin: true
             },
-            '/loginS.jsp': {
-                target: config.apiAddress,
+            '/mxnzp': {
+                target: 'https://www.mxnzp.com/',
                 secure: false,
-                changeOrigin: true
+                changeOrigin: true,
+                pathRewrite: {
+                    '^/mxnzp': ''
+                }
             }
 
         }

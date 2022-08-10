@@ -52,7 +52,7 @@ export default function({url, method, data, loading = false, loadingContent = 'å
     }
 
     return new MyPromise((resolve, reject) => {
-        instance({url, method, data}).then((res) => {
+        instance({url, method, data}).then(res => {
             // loading && Toast.clear()
             resolve(res)
         }).catch(err => {

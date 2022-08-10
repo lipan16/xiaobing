@@ -13,11 +13,6 @@ const Home = () => {
     // }).catch(err => {
     //     console.log(err.message)
     // })
-    Api.loginPost({username: 'lipan'}).then(res => {
-        console.log('res', res)
-    }).catch(err => {
-        console.log(err.message)
-    })
 
     return (<>
         <BPI_TIME/>
