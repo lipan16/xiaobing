@@ -2,9 +2,10 @@ import AndroidKeyboardCover from '@/components/android-keyboard-cover'
 import IosInputHeight from '@/components/ios-input-height'
 import IosKeyboardReset from '@/components/ios-keyboard-reset'
 import MySwiper from '@/components/mySwiper'
+import BPI_TIME from '@/components/BPITime'
 import React from 'react'
 
-import BPI_TIME from '@/components/BPITime'
+import PublishSubscribeModel from '@/components/publish-subscribe-model'
 import Api from '@/api'
 
 const Home = () => {
