@@ -1,6 +1,5 @@
 const express = require('express')
 const bodyParser = require('body-parser')
-const {next} = require('lodash/seq')
 
 const app = express()
 // 解析 application/x-www-form-urlencoded
@@ -23,6 +22,25 @@ app.all('*', (req, res, next) => {
     }
 })
 
+app.get('/sse', (req, res) => {
+    console.log('/sse 服务器每隔一段时间向客户端发送数据')
+
+    res.header({
+        'Content-Type': 'text/event-stream',
+        'Cache-Control': 'no-cache, no-transform',
+        'Connection': 'keep-alive',
+        'X-Accel-Buffering': 'no'
+    })
+    const interval = setInterval(() => {
+        res.write('data:' + new Date() + '\n\n')
+    }, 1000)
+
+    setTimeout(() => {
+        clearInterval(interval)
+        res.write('data: EventSource close!!!\n\n')
+        res.write('event: EventSource close!!!\n')
+    }, 5000)
+})
 
 app.get('/api/name/:id', (req, res) => {
     console.log('/api/:id 接受的参数：', req.params.id)

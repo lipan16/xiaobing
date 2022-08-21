@@ -23,6 +23,11 @@ const webpackConfigDev = {
                 secure: false,
                 changeOrigin: true
             },
+            '/sse':{
+                target: config.apiAddress,
+                secure: false,
+                changeOrigin: true
+            },
             '/mxnzp': {
                 target: 'https://www.mxnzp.com/',
                 secure: false,
