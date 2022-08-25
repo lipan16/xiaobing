@@ -79,6 +79,24 @@ app.post('/api/post', (req, res) => {
     }))
 })
 
+let bigList = []
+
+// create 100,000 records
+for (let i = 0; i < 100_000; i++) {
+    bigList.push({
+        text: `hello world ${i}`,
+        tid: i
+    })
+}
+
+app.get('/api/bigList', (req, res) => {
+    console.log('/api/login 接受到的参数：', req.query)
+    res.send(JSON.stringify({
+        flag: 200,
+        info: {bigList}
+    }))
+})
+
 app.listen(3000, () => {
     console.log('app listen 3000 port')
 })

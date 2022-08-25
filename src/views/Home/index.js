@@ -1,4 +1,5 @@
 import AndroidKeyboardCover from '@/components/android-keyboard-cover'
+import BigList from '@/components/bigList'
 import IosInputHeight from '@/components/ios-input-height'
 import IosKeyboardReset from '@/components/ios-keyboard-reset'
 import MySwiper from '@/components/mySwiper'
@@ -6,7 +7,6 @@ import BPI_TIME from '@/components/BPITime'
 import SSE from '@/components/SSE'
 import React from 'react'
 
-import PublishSubscribeModel from '@/components/publish-subscribe-model'
 import Api from '@/api'
 
 const Home = () => {
@@ -17,9 +17,8 @@ const Home = () => {
     // })
 
     return (<>
-        <BPI_TIME/>
-        <MySwiper/>
-        <SSE/>
+        {/*<BPI_TIME/>*/}
+        <BigList/>
     </>)
 }
 
