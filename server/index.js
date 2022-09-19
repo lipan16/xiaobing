@@ -66,6 +66,16 @@ app.get('/api/login', (req, res) => {
     }))
 })
 
+app.get('/api/badge', (req, res) => {
+    console.log('/api/login 接受到的参数：', req.query)
+    res.send(JSON.stringify({
+        flag: 200,
+        info: {
+            badge: '5'
+        }
+    }))
+})
+
 app.post('/api/post', (req, res) => {
     console.log('/api/post 接受到的参数：', req.body)
 

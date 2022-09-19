@@ -5,7 +5,8 @@ import IosKeyboardReset from '@/components/ios-keyboard-reset'
 import MySwiper from '@/components/mySwiper'
 import BPI_TIME from '@/components/BPITime'
 import SSE from '@/components/SSE'
-import React from 'react'
+import {Badge} from 'antd-mobile'
+import React, {useEffect, useState} from 'react'
 
 import Api from '@/api'
 
@@ -15,10 +16,22 @@ const Home = () => {
     // }).catch(err => {
     //     console.log(err.message)
     // })
+    let [badge, setBadge] = useState('')
+    useEffect(() => {
+        Api.getBadge().then(res => {
+            setBadge(res.badge)
+            console.log(res)
+        })
+    }, [])
 
     return (<>
-        {/*<BPI_TIME/>*/}
-        <BigList/>
+        <BPI_TIME/>
+        <div>
+            <Badge content={badge}>
+                <div>角色</div>
+            </Badge>
+        </div>
+        {/*<BigList/>*/}
     </>)
 }
 

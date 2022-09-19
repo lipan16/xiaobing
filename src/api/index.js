@@ -24,6 +24,7 @@ const Api = {
     login: (data) => Request({url: '/api/login', method: 'GET', data, loading: true, loadingContent: '登录中...'}),
     loginPost: (data) => Request({url: '/api/post', method: 'POST', data, loading: true, loadingContent: '登录中...'}),
     bigList: () => Request({url: '/api/bigList', method: 'get', data: {}}),
+    getBadge: () => Request({url: '/api/badge', method: 'GET'}),
 }
 
 export default Api
