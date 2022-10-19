@@ -1,7 +1,8 @@
 # todo
 思考 列表如何做缓存
 
-
+css: backdrop-filter实现毛玻璃效果
+Concurrent request ：并发请求
 
 # 项目依赖
 

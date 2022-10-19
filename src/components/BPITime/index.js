@@ -28,7 +28,10 @@ const BPI_TIME = () => {
     }
 
     return (
-        <div className='bpi-time' onClick={changesTimeType}>{dataTime || getBpiTime(timeType)}</div>
+        <>
+            <div className="bpi-time" onClick={changesTimeType}>{dataTime || getBpiTime(timeType)}</div>
+            <div className="test"></div>
+        </>
     )
 
 }
