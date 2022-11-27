@@ -3,9 +3,10 @@ import React from 'react'
 const importAll = (requireContext) => requireContext.keys().forEach(requireContext)
 
 try{
+    console.log('import all')
     importAll(require.context('@/assets/svg', false, /\.svg$/))
 }catch(error){
-    console.log(error)
+    console.error('import all svg ERROR', error)
 }
 
 const SvgIcon = (props) => {

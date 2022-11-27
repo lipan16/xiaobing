@@ -4,6 +4,7 @@ import IosInputHeight from '@/components/ios-input-height'
 import IosKeyboardReset from '@/components/ios-keyboard-reset'
 import MySwiper from '@/components/mySwiper'
 import BPI_TIME from '@/components/BPITime'
+import ParallaxText from '@/components/parallaxText'
 import SSE from '@/components/SSE'
 import SvgIcon from '@/components/SvgIcon'
 import {Button} from 'antd-mobile'
@@ -16,7 +17,6 @@ const Home = () => {
     const navigate = useNavigate()
 
     return (<>
-        <SvgIcon name='back' />
         home
         <Button onClick={() => navigate('/map')}>高德</Button>
     </>)

@@ -24,6 +24,18 @@ body{
     flex-direction: column;
 }
 
+::-webkit-scrollbar{
+    height     : 5px;
+    width      : 5px;
+}
+
+::-webkit-scrollbar-thumb{
+    -webkit-border-radius : 1ex;
+}
+
+::-webkit-scrollbar-corner{
+}
+
 ul, li{
     list-style : none;
 }
@@ -49,24 +61,11 @@ img{
     align-items : center;
 }
 
-/* animation */
-@keyframes rotate360{
-    0%{
-        transform : rotate(0deg);
-    }
-    25%{
-        transform : rotate(90deg);
-    }
-    50%{
-        transform : rotate(180deg);
-    }
-    75%{
-        transform : rotate(270deg);
-    }
-    100%{
-        transform : rotate(360deg);
-    }
+.flex-list{
+    display: flex;
+    flex-direction: column;
 }
 
-
-
+.display-none{
+    display: none;
+}

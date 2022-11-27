@@ -2,8 +2,8 @@ import React, {useState, useRef} from 'react'
 
 import './index.less'
 
-const mySwiper = () => {
-    const imgs = []
+const MySwiper = () => {
+    const imgs = [require('@/assets/svg/back.svg'), require('@/assets/svg/back.svg')]
     const [swiperIndex, setSwiperIndex] = useState(0)
     const swiperRef = useRef()
 
@@ -45,4 +45,4 @@ const mySwiper = () => {
 
 }
 
-export default mySwiper
+export default MySwiper
