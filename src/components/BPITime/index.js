@@ -3,9 +3,10 @@ import {useDispatch, useSelector} from 'react-redux'
 
 import {changeTimeType} from '@/store/bpiTime'
 import {getBpiTime} from '@/utils/bpiTime'
+import SvgIcon from '@/components/SvgIcon'
 import './index.less'
 
-const BPI_TIME = () => {
+const BPI_TIME = (props) => {
     let timeType = useSelector((state) => state.bpiTime.timeType)
     let dispatch = useDispatch()
 
@@ -28,12 +29,12 @@ const BPI_TIME = () => {
     }
 
     return (
-        <>
-            <div className="bpi-time" onClick={changesTimeType}>{dataTime || getBpiTime(timeType)}</div>
-            <div className="test"></div>
-        </>
+        <div className='bpi-time flex-inline'>
+            <SvgIcon name='back' className='left' onClick={props.leftClick} fill='#ff00ff'/>
+            <div className='title' onClick={changesTimeType}>{dataTime || getBpiTime(timeType)}</div>
+            <div className='test'></div>
+        </div>
     )
-
 }
 
 export default BPI_TIME

@@ -5,13 +5,29 @@
     line-height      : 44px;
     height           : 44px;
     position         : relative;
+    justify-content  : center;
 
+    > .left{
+        position : absolute;
+        left     : 16px;
+    }
+
+    > .title{
+
+    }
+
+    .test{
+        backdrop-filter : blur(2px);
+        position        : absolute;
+        left            : 400px;
+        width           : 20px;
+        height          : 44px;
+    }
 }
 
-.test{
-    backdrop-filter : blur(2px);
-    position : absolute;
-    left: 400px;
-    width : 20px;
-    height: 44px;
+@media screen and (min-width : 500px){
+    .bpi-time{
+        line-height : 80px;
+        height      : 80px;
+    }
 }

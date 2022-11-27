@@ -16,7 +16,6 @@ const webpackConfigDev = {
         devMiddleware: {
             writeToDisk: true
         },
-        open: true,
         proxy: {
             '/api': {
                 target: config.apiAddress,

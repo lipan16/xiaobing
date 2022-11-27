@@ -59,12 +59,24 @@ module.exports = {
                 ]
             },
             {
+                test: /\.svg$/,
+                use: [
+                    {loader: 'svg-sprite-loader', options: {}},
+                    {loader: 'svgo-loader', options: {
+                        plugins:[
+                            {name: 'removeAttrs', params: {attrs:'fill'}}
+                        ]}
+                    }
+                ],
+                include: path.join(__dirname, '../src/assets/svg')
+            },
+            {
                 test: /\.(png|svg|jpg|jpeg|gif)$/i,
                 type: 'asset/resource',
                 generator: {
                     filename: 'imgs/[hash].[name][ext]'
                 },
-                exclude: /node_modules/,
+                exclude: path.join(__dirname, '../node_modules',  '../src/assets/svg'),
                 include: path.join(__dirname, '../src/assets')
             },
             {
@@ -74,8 +86,9 @@ module.exports = {
                     filename: 'fonts/[hash].[name][ext]'
                 },
                 exclude: /node_modules/,
-                include: path.join(__dirname, './src/assets/images')
-            }
+                include: path.join(__dirname, '../src/assets')
+            },
+
         ]
     },
     resolve: {
