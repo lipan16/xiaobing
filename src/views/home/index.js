@@ -5,33 +5,25 @@ import IosKeyboardReset from '@/components/ios-keyboard-reset'
 import MySwiper from '@/components/mySwiper'
 import BPI_TIME from '@/components/BPITime'
 import SSE from '@/components/SSE'
-import {Badge} from 'antd-mobile'
-import React, {useEffect, useState} from 'react'
+import {Button} from 'antd-mobile'
+import React, {useEffect} from 'react'
 
 import Api from '@/api'
+import {useNavigate, Outlet} from 'react-router-dom'
 
 const Home = () => {
-    // Api.login({username: 'lipan'}).then(res => {
-    //     console.log(res)
-    // }).catch(err => {
-    //     console.log(err.message)
-    // })
-    let [badge, setBadge] = useState('')
+    const navigate = useNavigate()
     useEffect(() => {
-        Api.getBadge().then(res => {
-            setBadge(res.badge)
+        Api.login({username: 'lipan'}).then(res => {
             console.log(res)
+        }).catch(err => {
+            console.log(err.message)
         })
     }, [])
 
     return (<>
         <BPI_TIME/>
-        <div>
-            <Badge content={badge}>
-                <div>角色</div>
-            </Badge>
-        </div>
-        {/*<BigList/>*/}
+        <Outlet/>
     </>)
 }
 

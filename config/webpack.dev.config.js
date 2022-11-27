@@ -35,8 +35,7 @@ const webpackConfigDev = {
                 pathRewrite: {
                     '^/mxnzp': ''
                 }
-            }
-
+            },
         }
     },
     plugins: [
