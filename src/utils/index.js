@@ -63,3 +63,65 @@ String.prototype.sliceByPoint = function(pStart, pEnd){
 console.log('😀死了'.sliceByPoint(0, 1))
 // '\uD83D'
 console.log('😀死了'.slice(0, 1))
+
+const chineseUppercaseMap = {
+    '零': '零',
+    '一': '壹',
+    '二': '贰',
+    '三': '叁',
+    '四': '肆',
+    '五': '伍',
+    '六': '陆',
+    '七': '柒',
+    '八': '捌',
+    '九': '玖',
+    '十': '拾',
+    '百': '佰',
+    '千': '仟',
+    '万': '万',
+    '亿': '亿'
+}
+
+/**
+ * 数字转中文
+ * @param num
+ */
+const toChineseNumber = (num) => {
+    const numStr = num.toString().replace(/(?=(\d{4})+$)/g, ',').split(',').filter(Boolean)
+
+    const chars = ['零', '一', '二', '三', '四', '五', '六', '七', '八', '九']
+    const units = ['', '十', '百', '千']
+    const bigUnits = ['', '万', '亿']
+
+
+    function handleZero(str){ // 处理零的读法 如1002，1000，0000
+        return str.replace(/零{2,}/g, '零').replace(/零+/g, '')
+    }
+
+    function _transform(n){ // 四位数字转换为字符串
+        if(n === '0000'){
+            return chars[0]
+        }
+        let result = ''
+        for(let i = 0; i < n.length; i++){
+            const c = chars[+n[i]]
+            let u = units[n.length - 1 - i]
+            if(c === chars[0]){
+                u = ''
+            }
+            result += c + u
+        }
+        return handleZero(result)
+    }
+
+    let result = ''
+    for(let i = 0; i < numStr.length; i++){
+        const c = _transform(numStr[i])
+        let u = bigUnits[numStr.length - 1 - i]
+        if(c === chars[0]){
+            u = ''
+        }
+        result += c + u
+    }
+    return handleZero(result)
+}
