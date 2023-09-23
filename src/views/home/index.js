@@ -12,12 +12,14 @@ import React, {useEffect} from 'react'
 
 import Api from '@/api'
 import {useNavigate} from 'react-router-dom'
+import RotateCarousel from '@/components/rotateCarousel'
 
 const Home = () => {
     const navigate = useNavigate()
 
     return (<>
         home
+        <RotateCarousel />
         <Button color='primary' onClick={() => navigate('/map')}>高德</Button>
     </>)
 }
