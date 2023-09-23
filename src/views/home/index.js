@@ -18,7 +18,7 @@ const Home = () => {
 
     return (<>
         home
-        <Button onClick={() => navigate('/map')}>高德</Button>
+        <Button color='primary' onClick={() => navigate('/map')}>高德</Button>
     </>)
 }
 
